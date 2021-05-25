@@ -8,8 +8,8 @@ export default class ToolBar extends Component {
 
   render() {
     async function  startRecording() {
-     let startRecording =  await axios.post('http://www.localhost:4000/startRecording',{startRecording:'start'})
-     
+     let startRecording =  await axios.post('https://zupla.herokuapp.com/startRecording',{hey:'hey',hello:'hello'})
+     console.log(startRecording.data);
     }
     return (
       <div>
