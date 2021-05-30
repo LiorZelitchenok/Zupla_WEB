@@ -8,7 +8,7 @@ export default class Logs extends Component {
     render() {
         return (
             <div>
-                
+                hello
             </div>
         )
     }
