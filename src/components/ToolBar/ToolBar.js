@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from "axios";
 export default class ToolBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      logs: null,
+    };
   }
 
   render() {
-    async function  startRecording() {
-     let startRecording =  await axios.post('https://zupla.herokuapp.com/startRecording',{hey:'hey',hello:'hello'})
-     console.log(startRecording.data);
-    }
+    const getLogs = async () => {
+      let response = await axios.get("https://zupla.herokuapp.com/logs");
+      if (response.data !== "No logs for now ...") {
+        this.setState({ logs: response.data });
+      } else {
+        alert("No logs for now ...");
+      }
+    };
     return (
       <div>
         <div>
-          <button onClick={startRecording}>Start Recording</button>
+          <button onClick={getLogs}>Get Logs</button>
+          {this.state.logs ? <Logs logs={this.state.logs} /> : ""}
         </div>
       </div>
     );
