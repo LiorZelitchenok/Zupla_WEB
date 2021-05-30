@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logs from '../Logs.js/Logs'
 import axios from "axios";
 export default class ToolBar extends Component {
   constructor(props) {
